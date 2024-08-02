@@ -1,18 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:text="Welcome"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/black"
+        android:textSize="27sp"
+        android:textStyle="bold"
+
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="Andrea"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/red"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        />
 
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardview"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         app:cardBackgroundColor="@color/red"
-        android:layout_marginTop="95dp">
+        android:layout_marginTop="10dp">
 
         <com.denzcoskun.imageslider.ImageSlider
             android:layout_width="match_parent"
@@ -26,4 +52,4 @@
     </androidx.cardview.widget.CardView>
 
 
-</RelativeLayout>
+</LinearLayout>
