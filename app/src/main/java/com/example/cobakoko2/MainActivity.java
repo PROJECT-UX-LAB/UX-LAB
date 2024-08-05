@@ -3,6 +3,7 @@ package com.example.cobakoko2;
 import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import com.denzcoskun.imageslider.ImageSlider;
@@ -10,32 +11,55 @@ import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView termsTextView;
     private Button termsButton;
     private Button conditionsButton;
+    Button btnPrev;
+    Button btnNext;
+    ImageSlider imageSlider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ImageSlider imageSlider = findViewById(R.id.imageSlider);
-        ArrayList<SlideModel> slideModels = new ArrayList<>();
+        // Initialize views
+        imageSlider = findViewById(R.id.imageSlider);
+        btnPrev = findViewById(R.id.btnPrev);
+        btnNext = findViewById(R.id.btnNext);
+        termsTextView = findViewById(R.id.terms);
+        termsButton = findViewById(R.id.btn_terms);
+        conditionsButton = findViewById(R.id.btn_conditions);
 
+        btnPrev.setOnClickListener(this);
+        btnNext.setOnClickListener(this);
+
+        // Check if buttons are null and set them to null if they are
+        if (btnPrev == null) {
+            btnPrev = null;
+            System.out.println("btnPrev is null");
+        }
+        if (btnNext == null) {
+            btnNext = null;
+            System.out.println("btnNext is null");
+        }
+
+        // Initialize image slider with images
+        ArrayList<SlideModel> slideModels = new ArrayList<>();
         slideModels.add(new SlideModel(R.drawable.image1, ScaleTypes.FIT));
         slideModels.add(new SlideModel(R.drawable.image2, ScaleTypes.FIT));
         slideModels.add(new SlideModel(R.drawable.image3, ScaleTypes.FIT));
         slideModels.add(new SlideModel(R.drawable.image4, ScaleTypes.FIT));
         slideModels.add(new SlideModel(R.drawable.image5, ScaleTypes.FIT));
-
         imageSlider.setImageList(slideModels, ScaleTypes.FIT);
 
-        termsTextView = findViewById(R.id.terms);
-        termsButton = findViewById(R.id.btn_terms);
-        conditionsButton = findViewById(R.id.btn_conditions);
+        // Set button click listeners
+//        btnPrev.setOnClickListener(v -> imageSlider.movePreviousPosition());
+//        btnNext.setOnClickListener(v -> imageSlider.moveNextPosition());
 
+        // Set terms and conditions button click listeners
         termsButton.setOnClickListener(v -> {
             termsTextView.setText("[ Terms ] : Permudah Pengelolaan Aset Game Anda\n\nAXForAsset adalah aplikasi mobile yang dirancang untuk mempermudah pengelolaan dan distribusi aset game. Aplikasi ini ditujukan untuk developer game individual maupun studio yang ingin menyederhanakan alur kerja aset mereka dan meningkatkan kolaborasi.\n\n1. Privasi: User berkomitmen untuk melindungi privasi Pengguna dan hanya akan mengumpulkan dan menggunakan informasi pribadi sesuai dengan Kebijakan Privasi.\n2. Batasan Tanggung Jawab: AXForAsset tidak bertanggung jawab atas kerusakan atau kerugian akibat gangguan aplikasi, kehilangan data, pelanggaran Syarat dan Ketentuan, atau tindakan pihak ketiga.\n3. Penghentian Layanan: AXForAsset berhak menghentikan layanan secara keseluruhan atau sebagian tanpa pemberitahuan sebelumnya. Pengguna dapat berhenti menggunakan Aplikasi kapan saja.");
             termsButton.setTypeface(null, Typeface.BOLD);
@@ -51,5 +75,20 @@ public class MainActivity extends AppCompatActivity {
             conditionsButton.setBackgroundResource(R.drawable.button_pressed);
             termsButton.setBackgroundResource(R.drawable.button_selector);
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+//        if(v == btnNext){
+//            imageSlider.showNext();
+//        }
+//        else if(v == btnPrev){
+//            imageSlider.showPrevious();
+//        }
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+        super.onPointerCaptureChanged(hasCapture);
     }
 }

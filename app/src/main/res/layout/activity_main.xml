@@ -7,44 +7,98 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/welcome"
+    <!-- Container for Welcome and Burger Menu -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="20dp"
-        android:text="Welcome"
-        android:fontFamily="@font/poppins_bold"
-        android:textColor="@color/black"
-        android:textSize="27sp"
-        android:textStyle="bold" />
+        android:orientation="horizontal"
+        android:padding="16dp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:text="Andrea"
-        android:fontFamily="@font/poppins_regular"
-        android:textColor="@color/red"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        <!-- Nested Vertical LinearLayout for Welcome and Andrea -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
+            <!-- Welcome Text -->
+            <TextView
+                android:id="@+id/welcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Welcome"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:textSize="27sp"
+                android:textStyle="bold"/>
+
+            <!-- Andrea Text (placed below Welcome text) -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Andrea"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="@color/red"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <!-- Spacer to push the ImageButton to the right -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <!-- ImageButton for Burger Menu -->
+        <ImageButton
+            android:id="@+id/menu_button"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/burgerbar"/>
+    </LinearLayout>
+
+    <!-- Rest of your layout code -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        app:cardBackgroundColor="@color/red"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        app:cardBackgroundColor="@color/red">
 
-        <com.denzcoskun.imageslider.ImageSlider
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:id="@+id/imageSlider"
-            app:iss_period="1000"
-            app:iss_auto_cycle="true"
-            app:iss_delay="1000"
-            app:iss_title_background="@drawable/gradient" />
+            android:layout_height="match_parent">
 
+            <com.denzcoskun.imageslider.ImageSlider
+                android:id="@+id/imageSlider"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:iss_period="1000"
+                app:iss_auto_cycle="true"
+                app:iss_delay="1000"
+                app:iss_title_background="@drawable/gradient" />
+
+            <Button
+                android:id="@+id/btnPrev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Prev"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/button_selector" />
+
+            <Button
+                android:id="@+id/btnNext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Next"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/button_selector" />
+        </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
     <!-- Add the terms and conditions buttons below the image slider -->
