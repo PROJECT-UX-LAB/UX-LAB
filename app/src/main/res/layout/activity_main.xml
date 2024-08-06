@@ -51,6 +51,7 @@
             android:layout_marginLeft="200dp"
             android:scaleType="fitCenter"
             android:src="@drawable/burgerbar" />
+
     </LinearLayout>
 
     <!-- CardView directly below the Welcome and Burger Menu -->

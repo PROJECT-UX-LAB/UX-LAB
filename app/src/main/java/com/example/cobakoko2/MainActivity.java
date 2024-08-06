@@ -1,11 +1,20 @@
 package com.example.cobakoko2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
@@ -18,7 +27,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button conditionsButton;
     Button btnPrev;
     Button btnNext;
+    ImageButton menu_button;
     ImageSlider imageSlider;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +44,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         termsTextView = findViewById(R.id.terms);
         termsButton = findViewById(R.id.btn_terms);
         conditionsButton = findViewById(R.id.btn_conditions);
+
+        menu_button = findViewById(R.id.menu_button);
+        registerForContextMenu(menu_button);
 
         btnPrev.setOnClickListener(this);
         btnNext.setOnClickListener(this);
@@ -75,6 +90,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             conditionsButton.setBackgroundResource(R.drawable.button_pressed);
             termsButton.setBackgroundResource(R.drawable.button_selector);
         });
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+
+        MenuInflater menuInflater = new MenuInflater(this);
+        menuInflater.inflate(R.menu.menu_item,menu) ;
+
+    }
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.item1:
+                Toast.makeText(this, "Items", Toast.LENGTH_SHORT).show();
+            case R.id.item2:
+                Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
+            case R.id.item3:
+                Toast.makeText(this, "Log Out", Toast.LENGTH_SHORT).show();
+
+        }
+        return super.onContextItemSelected(item);
     }
 
     @Override
