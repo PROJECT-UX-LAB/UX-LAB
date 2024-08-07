@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         menu_button = findViewById(R.id.menu_button);
         registerForContextMenu(menu_button);
+
 
         btnPrev.setOnClickListener(this);
         btnNext.setOnClickListener(this);
@@ -92,6 +94,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
+    //    --------------------------------------------------------------------------------
+
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
@@ -115,6 +119,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         return super.onContextItemSelected(item);
     }
+//    --------------------------------------------------------------------------------
 
     @Override
     public void onClick(View v) {

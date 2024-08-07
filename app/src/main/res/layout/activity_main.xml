@@ -54,7 +54,7 @@
 
     </LinearLayout>
 
-    <!-- CardView directly below the Welcome and Burger Menu -->
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview"
         android:layout_width="match_parent"
