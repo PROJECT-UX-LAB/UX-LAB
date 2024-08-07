@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InformationFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/black"
+        android:text="[ Conditions ]: Permudah Pengelolaan Aset Game Anda
+AXForAsset adalah aplikasi mobile yang dirancang untuk mempermudah pengelolaan dan distribusi aset game. Aplikasi ini ditujukan untuk developer game individual maupun studio yang ingin menyederhanakan alur kerja aset mereka dan meningkatkan kolaborasi.
+1. Penerimaan:
+- Pengguna dianggap telah menyetujui dan terikat dengan Syarat dan Ketentuan ini dengan mengunduh, mendaftar, dan menggunakan Aplikasi.
+2. Akun Pengguna:
+- Pengguna wajib membuat akun untuk menggunakan Aplikasi.
+-  Pengguna bertanggung jawab atas keamanan a kunnya dan semua aktivitas yang terjadi dalam akunnya.
+3. Pembayaran:
+- Pengguna dapat membeli aset game dan game lain berbayar melalui AXForAsset.
+- Metode pembayaran yang tersedia dapat berubah sewaktu-waktu." />
+
+</FrameLayout>

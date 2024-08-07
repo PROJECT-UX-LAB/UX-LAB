@@ -105,47 +105,17 @@
         android:gravity="center"
         android:layout_marginTop="10dp">
 
-        <Button
-            android:id="@+id/btn_terms"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Terms"
-            android:background="@drawable/button_selector"
-            android:textColor="@color/red"
-            android:textStyle="bold"/>
-
-        <Button
-            android:id="@+id/btn_conditions"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Conditions"
-            android:background="@drawable/button_selector"
-            android:textColor="@color/red" />
-    </LinearLayout>
-
-    <!-- Add the terms section below the image slider -->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
-
-        <LinearLayout
+        <androidx.viewpager.widget.ViewPager
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <TextView
-                android:id="@+id/terms"
+            android:layout_height="match_parent"
+            android:id="@+id/viewPager"
+            android:layout_below = "@+id/imageSlider">
+            <com.google.android.material.tabs.TabLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="[ Terms ] : Permudah Pengelolaan Aset Game Anda\n\nAXForAsset adalah aplikasi mobile yang dirancang untuk mempermudah pengelolaan dan distribusi aset game. Aplikasi ini ditujukan untuk developer game individual maupun studio yang ingin menyederhanakan alur kerja aset mereka dan meningkatkan kolaborasi.\n\n1. Privasi: User berkomitmen untuk melindungi privasi Pengguna dan hanya akan mengumpulkan dan menggunakan informasi pribadi sesuai dengan Kebijakan Privasi.\n2. Batasan Tanggung Jawab: AXForAsset tidak bertanggung jawab atas kerusakan atau kerugian akibat gangguan aplikasi, kehilangan data, pelanggaran Syarat dan Ketentuan, atau tindakan pihak ketiga.\n3. Penghentian Layanan: AXForAsset berhak menghentikan layanan secara keseluruhan atau sebagian tanpa pemberitahuan sebelumnya. Pengguna dapat berhenti menggunakan Aplikasi kapan saja."
-                android:fontFamily="@font/poppins_regular"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-        </LinearLayout>
-    </ScrollView>
+                android:id="@+id/tabLayout"/>
+        </androidx.viewpager.widget.ViewPager>
+
+    </LinearLayout>
 
 </LinearLayout>
