@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -13,13 +13,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.PopupMenu;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.example.cobakoko2.databinding.ActivityMainBinding;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -33,14 +32,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ImageButton menu_button;
     ImageSlider imageSlider;
 
-
+    ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         setContentView(R.layout.activity_main);
 
-        // Initialize views
         imageSlider = findViewById(R.id.imageSlider);
         btnPrev = findViewById(R.id.btnPrev);
         btnNext = findViewById(R.id.btnNext);
@@ -51,67 +51,49 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         viewPager.setAdapter(tabPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
 
-
         menu_button = findViewById(R.id.menu_button);
         registerForContextMenu(menu_button);
 
-
-        btnPrev.setOnClickListener(this);
-        btnNext.setOnClickListener(this);
-
-        // Check if buttons are null and set them to null if they are
-        if (btnPrev == null) {
-            btnPrev = null;
-            System.out.println("btnPrev is null");
-        }
-        if (btnNext == null) {
-            btnNext = null;
-            System.out.println("btnNext is null");
-        }
-
-        // Initialize image slider with images
-        ArrayList<SlideModel> slideModels = new ArrayList<>();
-        slideModels.add(new SlideModel(R.drawable.image1, ScaleTypes.FIT));
-        slideModels.add(new SlideModel(R.drawable.image2, ScaleTypes.FIT));
-        slideModels.add(new SlideModel(R.drawable.image3, ScaleTypes.FIT));
-        slideModels.add(new SlideModel(R.drawable.image4, ScaleTypes.FIT));
-        slideModels.add(new SlideModel(R.drawable.image5, ScaleTypes.FIT));
-        imageSlider.setImageList(slideModels, ScaleTypes.FIT);
-
+//        btnPrev.setOnClickListener(this);
+//        btnNext.setOnClickListener(this);
+//
+//        ArrayList<SlideModel> slideModels = new ArrayList<>();
+//        slideModels.add(new SlideModel(R.drawable.image1, ScaleTypes.FIT));
+//        slideModels.add(new SlideModel(R.drawable.image2, ScaleTypes.FIT));
+//        slideModels.add(new SlideModel(R.drawable.image3, ScaleTypes.FIT));
+//        slideModels.add(new SlideModel(R.drawable.image4, ScaleTypes.FIT));
+//        slideModels.add(new SlideModel(R.drawable.image5, ScaleTypes.FIT));
+//        imageSlider.setImageList(slideModels, ScaleTypes.FIT);
     }
-
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
-
         MenuInflater menuInflater = new MenuInflater(this);
-        menuInflater.inflate(R.menu.menu_item,menu) ;
-
+        menuInflater.inflate(R.menu.menu_item, menu);
     }
 
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
-
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.item1:
                 Toast.makeText(this, "Items", Toast.LENGTH_SHORT).show();
+                break;
             case R.id.item2:
                 Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
+                break;
             case R.id.item3:
                 Toast.makeText(this, "Log Out", Toast.LENGTH_SHORT).show();
-
+                break;
         }
         return super.onContextItemSelected(item);
     }
-//    --------------------------------------------------------------------------------
 
     @Override
     public void onClick(View v) {
-//        if(v == btnNext){
+//        if (v == btnNext) {
 //            imageSlider.showNext();
-//        }
-//        else if(v == btnPrev){
+//        } else if (v == btnPrev) {
 //            imageSlider.showPrevious();
 //        }
     }
