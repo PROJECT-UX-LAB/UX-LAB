@@ -4,21 +4,18 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import android.app.Activity;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
-import com.example.cobakoko2.databinding.ActivityMainBinding;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -27,18 +24,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private TabPagerAdapter tabPagerAdapter;
-    Button btnPrev;
-    Button btnNext;
-    ImageButton menu_button;
-    ImageSlider imageSlider;
+    private ImageView btnPrev;
+    private ImageView btnNext;
+    private ImageButton menu_button;
+    private ImageSlider imageSlider;
+    private ViewPager sliderViewPager;
 
-    ActivityMainBinding binding;
+    private int currentSlide = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
         setContentView(R.layout.activity_main);
 
         imageSlider = findViewById(R.id.imageSlider);
@@ -54,16 +50,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         menu_button = findViewById(R.id.menu_button);
         registerForContextMenu(menu_button);
 
-//        btnPrev.setOnClickListener(this);
-//        btnNext.setOnClickListener(this);
-//
-//        ArrayList<SlideModel> slideModels = new ArrayList<>();
-//        slideModels.add(new SlideModel(R.drawable.image1, ScaleTypes.FIT));
-//        slideModels.add(new SlideModel(R.drawable.image2, ScaleTypes.FIT));
-//        slideModels.add(new SlideModel(R.drawable.image3, ScaleTypes.FIT));
-//        slideModels.add(new SlideModel(R.drawable.image4, ScaleTypes.FIT));
-//        slideModels.add(new SlideModel(R.drawable.image5, ScaleTypes.FIT));
-//        imageSlider.setImageList(slideModels, ScaleTypes.FIT);
+        btnPrev.setOnClickListener(this);
+        btnNext.setOnClickListener(this);
+
+        // Inisialisasi ImageSlider dengan gambar-gambar
+        ArrayList<SlideModel> slideModels = new ArrayList<>();
+        slideModels.add(new SlideModel(R.drawable.image1, ScaleTypes.FIT));
+        slideModels.add(new SlideModel(R.drawable.image2, ScaleTypes.FIT));
+        slideModels.add(new SlideModel(R.drawable.image3, ScaleTypes.FIT));
+        slideModels.add(new SlideModel(R.drawable.image4, ScaleTypes.FIT));
+        slideModels.add(new SlideModel(R.drawable.image5, ScaleTypes.FIT));
+        imageSlider.setImageList(slideModels, ScaleTypes.FIT);
+
+        // Ambil referensi ViewPager dari dalam ImageSlider
+        sliderViewPager = (ViewPager) imageSlider.findViewById(com.denzcoskun.imageslider.R.id.view_pager);
+
     }
 
     @Override
@@ -88,15 +89,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         return super.onContextItemSelected(item);
     }
-
-    @Override
-    public void onClick(View v) {
-//        if (v == btnNext) {
-//            imageSlider.showNext();
-//        } else if (v == btnPrev) {
-//            imageSlider.showPrevious();
-//        }
+    public class ReversePageTransformer implements ViewPager.PageTransformer {
+        @Override
+        public void transformPage(@NonNull View page, float position) {
+            page.setTranslationX(-position * page.getWidth());
+            page.setAlpha(1 - Math.abs(position));
+        }
     }
+
+
+    public void onClick(View v) {
+        int totalSlides = sliderViewPager.getAdapter().getCount();
+
+        if (v == btnNext) {
+            currentSlide++;
+            if (currentSlide >= totalSlides) {
+                currentSlide = 0; // Kembali ke slide pertama jika sudah mencapai slide terakhir
+            }
+            sliderViewPager.setCurrentItem(currentSlide, true); // Slide ke depan dengan animasi maju
+        } else if (v == btnPrev) {
+            currentSlide--;
+            if (currentSlide < 0) {
+                currentSlide = totalSlides - 1; // Kembali ke slide terakhir jika sudah di slide pertama
+            }
+            sliderViewPager.setCurrentItem(currentSlide, false); // Slide ke belakang dengan animasi mundur
+        }
+    }
+
+
 
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
