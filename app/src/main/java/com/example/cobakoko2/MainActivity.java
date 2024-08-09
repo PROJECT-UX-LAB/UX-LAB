@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         slideModels.add(new SlideModel(R.drawable.image5, ScaleTypes.FIT));
         imageSlider.setImageList(slideModels, ScaleTypes.FIT);
 
-        // Ambil referensi ViewPager dari dalam ImageSlider
+
         sliderViewPager = (ViewPager) imageSlider.findViewById(com.denzcoskun.imageslider.R.id.view_pager);
 
     }
@@ -98,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
+    @Override
     public void onClick(View v) {
         int totalSlides = sliderViewPager.getAdapter().getCount();
 
@@ -108,13 +109,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             sliderViewPager.setCurrentItem(currentSlide, true); // Slide ke depan dengan animasi maju
         } else if (v == btnPrev) {
-            currentSlide--;
-            if (currentSlide < 0) {
-                currentSlide = totalSlides - 1; // Kembali ke slide terakhir jika sudah di slide pertama
+            if (currentSlide == 0) {
+                currentSlide = totalSlides - 1; // Jika sudah di slide pertama, lompat ke slide terakhir
+            } else {
+                currentSlide--;
             }
-            sliderViewPager.setCurrentItem(currentSlide, false); // Slide ke belakang dengan animasi mundur
+
+            // Simulasi slide mundur namun dengan animasi maju
+            sliderViewPager.setCurrentItem(currentSlide + 1, false); // Pindahkan ke slide berikutnya tanpa animasi
+            sliderViewPager.setCurrentItem(currentSlide, true); // Pindahkan kembali dengan animasi ke belakang (kanan ke kiri)
         }
     }
+
 
 
 
