@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/image1"/>
+
+    <TextView
+        android:padding="20dp"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/red"
+        android:layout_width="match_parent"
+        android:textSize="25dp"
+        android:layout_height="wrap_content"
+        android:text="Hello, There!"/>
+
+    <TextView
+        android:layout_marginLeft="23dp"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:textSize="20dp"
+        android:layout_height="wrap_content"
+        android:text="Username"/>
+
+    <EditText
+        android:fontFamily="@font/poppins_regular"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="your username"
+        android:textColorHint="@color/red"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:paddingLeft="23dp"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:textSize="20dp"
+        android:layout_height="wrap_content"
+        android:text="Password"/>
+
+    <EditText
+        android:fontFamily="@font/poppins_regular"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColorHint="@color/red"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="your password"
+        android:inputType="textPassword"/>
+
+    <RadioGroup
+        android:fontFamily="@font/poppins_regular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:buttonTint="@color/radio_btn_color"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="by clicking this button, you agree to the Terms of Use, Privacy Policy, and Disclaimer"/>
+    </RadioGroup>
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Login"/>
+
+</LinearLayout>
