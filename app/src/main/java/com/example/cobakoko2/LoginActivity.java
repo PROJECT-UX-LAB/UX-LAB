@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
@@ -119,6 +120,11 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, "Successfully Log in",
                             Toast.LENGTH_SHORT).show();
                     errorTV.setVisibility(View.INVISIBLE);
+
+                    Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+                    String globalVar = usernameET.getText().toString();
+                    intent.putExtra("USERNAME_KEY", globalVar);
+                    startActivity(intent);
                 }
             }
         });
