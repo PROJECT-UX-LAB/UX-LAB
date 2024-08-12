@@ -8,7 +8,7 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
-        android:layout_height="150dp"
+        android:layout_height="200dp"
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/image1"/>
 
@@ -38,9 +38,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="your username"
-        android:textColorHint="@color/red"
+        android:textColorHint="@color/grey_font"
         android:layout_marginBottom="20dp"
-        android:textSize="15dp"/>
+        android:textSize="15dp" />
 
     <TextView
         android:paddingLeft="23dp"
@@ -56,7 +56,7 @@
         android:fontFamily="@font/poppins_regular"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:textColorHint="@color/red"
+        android:textColorHint="@color/grey_font"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="your password"
@@ -86,4 +86,13 @@
         android:layout_height="wrap_content"
         android:text="Login"/>
 
+    <TextView
+        android:id="@+id/errorTV"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:textColor="@color/red"
+        android:fontFamily="@font/poppins_bold"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
 </LinearLayout>

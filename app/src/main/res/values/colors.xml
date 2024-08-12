@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="lavender">#B692f7</color>
     <color name="red">#E42949</color>
+    <color name="redUnderlineColor">#F44336</color>
+    <color name="defaultUnderlineColor">#757575</color>
 </resources>
