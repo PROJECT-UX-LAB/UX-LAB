@@ -91,6 +91,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
+        Intent intent = getIntent();
+        username = intent.getStringExtra("USERNAME_KEY");
         switch (item.getItemId()) {
             case R.id.item1:
                 Toast.makeText(this, "Items", Toast.LENGTH_SHORT).show();
@@ -100,12 +102,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.item2:
                 Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
                 Intent profile = new Intent(this, ProfileActivity.class);
+                profile.putExtra("USERNAME_KEY", username);
                 startActivity(profile);
                 break;
             case R.id.item3:
                 Toast.makeText(this, "Log Out", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(this, LoginActivity.class);
-                startActivity(intent);
+                Intent log_out = new Intent(this, LoginActivity.class);
+                startActivity(log_out);
 
                 break;
         }

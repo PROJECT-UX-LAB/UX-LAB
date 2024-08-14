@@ -121,7 +121,7 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                     errorTV.setVisibility(View.INVISIBLE);
 
-                    // Intent to ProfileActivity
+//                     Intent to ProfileActivity
 //                    Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
 //                    String globalVar = usernameET.getText().toString();
 //                    intent.putExtra("USERNAME_KEY", globalVar);
