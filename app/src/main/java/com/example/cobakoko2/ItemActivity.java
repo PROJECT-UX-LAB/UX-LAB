@@ -47,7 +47,8 @@ public class ItemActivity extends AppCompatActivity {
         itemList.add(new Item(R.string.game_title_4, R.string.game_desc_4, R.drawable.image4));
         itemList.add(new Item(R.string.game_title_5, R.string.game_desc_5, R.drawable.image5));
 
-        itemAdapter = new ItemAdapter(itemList, this);
+        Intent intent = new Intent(this, ItemActivity.class);
+        itemAdapter = new ItemAdapter(itemList, this, usernameParse);
         recyclerView.setAdapter(itemAdapter);
 
         usernameTextView.setText(usernameParse);
@@ -65,14 +66,15 @@ public class ItemActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent intent;
+        String globalVar = usernameTextView.getText().toString();
         switch (item.getItemId()) {
             case R.id.item0:
                 intent = new Intent(this, MainActivity.class);
+                intent.putExtra("USERNAME_KEY", globalVar);
                 startActivity(intent);
                 return true;
             case R.id.item2:
                 intent = new Intent(this, ProfileActivity.class);
-                String globalVar = usernameTextView.getText().toString();
                 intent.putExtra("USERNAME_KEY", globalVar);
                 startActivity(intent);
                 return true;

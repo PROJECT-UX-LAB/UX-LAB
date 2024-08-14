@@ -23,10 +23,13 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     private List<Item> itemList;
     private Context context;
 
+    private String username;
 
-    public ItemAdapter(List<Item> itemList, Context context) {
+
+    public ItemAdapter(List<Item> itemList, Context context, String username) {
         this.itemList = itemList;
         this.context = context;
+        this.username = username;
     }
 
     @NonNull
@@ -50,6 +53,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                     intent.putExtra("itemTitle", item.getDataTitle());
                     intent.putExtra("itemDesc", item.getDataDesc());
                     intent.putExtra("itemImage", item.getDataImage());
+                    intent.putExtra("USERNAME", this.username);
                     context.startActivity(intent);
                 }
         );

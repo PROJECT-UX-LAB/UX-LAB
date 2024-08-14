@@ -71,11 +71,12 @@ public class ItemDetail extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validateEmail();
+                validateEmail(intent);
             }
         });
 
         Intent home = new Intent(this, MainActivity.class);
+        home.putExtra("USERNAME_KEY", intent.getStringExtra("USERNAME"));
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,7 +86,7 @@ public class ItemDetail extends AppCompatActivity {
 
     }
 
-    private void validateEmail() {
+    private void validateEmail(Intent intent) {
         String emailInput = emailEditText.getText().toString().trim();
 
         if (emailInput.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()) {
@@ -93,7 +94,7 @@ public class ItemDetail extends AppCompatActivity {
             showErrorPopup();
         } else {
             // Email is valid, proceed with your logic
-            showSuccessPopup();
+            showSuccessPopup(intent);
         }
     }
 
@@ -120,7 +121,7 @@ public class ItemDetail extends AppCompatActivity {
         dialog.show();
     }
 
-    private void showSuccessPopup() {
+    private void showSuccessPopup(Intent intent) {
         // Inflate the custom layout for success
         View dialogView = getLayoutInflater().inflate(R.layout.dialog_custom_success, null);
 
@@ -133,6 +134,7 @@ public class ItemDetail extends AppCompatActivity {
         // Set up the OK button
         Button okButton = dialogView.findViewById(R.id.btn_ok);
         Intent item = new Intent(this, ItemActivity.class);
+        item.putExtra("USERNAME_KEY", intent.getStringExtra("USERNAME"));
 
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
