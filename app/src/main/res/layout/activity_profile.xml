@@ -17,10 +17,10 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
         android:layout_marginTop="-80dp"
-        tools:srcCompat="@drawable/image4" />
+        android:src="@drawable/pp_ux"/>
 
     <TextView
         android:id="@+id/globalTV"
@@ -28,7 +28,7 @@
         android:textColor="@color/red"
         android:gravity="center"
         android:textSize="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
