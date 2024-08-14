@@ -3,6 +3,7 @@ package com.example.cobakoko2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -24,5 +25,6 @@ public class ProfileActivity extends AppCompatActivity {
 
         globalTV.setText("Hi, " + username);
         emailTV.setText(username + "@gmail.com");
+        globalTV.setVisibility(View.VISIBLE);
     }
 }
