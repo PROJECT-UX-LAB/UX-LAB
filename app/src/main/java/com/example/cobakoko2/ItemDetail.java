@@ -12,15 +12,19 @@ import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class ItemDetail extends AppCompatActivity {
     private EditText emailEditText;
     private Button submitButton;
-    private Button okButton;
     private ImageButton backButton;
+    private TextView title;
+    private  TextView description;
+    private FrameLayout background;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +50,22 @@ public class ItemDetail extends AppCompatActivity {
         emailEditText = findViewById(R.id.email_edit_text);
         submitButton = findViewById(R.id.order_button);
         backButton = findViewById(R.id.back_button);
+
+        Intent intent = getIntent();
+
+        Integer title_text = intent.getIntExtra("itemTitle", 0);
+        Integer description_text = intent.getIntExtra("itemDesc", 0);
+        Integer image_text = intent.getIntExtra("itemImage", 0);
+
+
+        title = findViewById(R.id.title_content);
+        title.setText(getString(title_text));
+
+        description = findViewById(R.id.description);
+        description.setText(getString(description_text));
+
+        background = findViewById(R.id.background_game);
+        background.setBackground(getDrawable(image_text));
 
         // Set onClick listener for the submit button
         submitButton.setOnClickListener(new View.OnClickListener() {
