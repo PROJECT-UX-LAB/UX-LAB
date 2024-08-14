@@ -10,7 +10,10 @@
         android:layout_width="wrap_content"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
-        app:srcCompat="@drawable/image1"/>
+        android:layout_marginTop="-5dp"
+        android:background="@drawable/circle_shape"
+        android:clipToOutline="true"
+        app:srcCompat="@drawable/bg_login"/>
 
     <TextView
         android:padding="20dp"
@@ -85,6 +88,8 @@
         android:layout_gravity="center"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/delete_shape_full"
+        android:clipToOutline="true"
         android:text="Login"/>
 
     <TextView
