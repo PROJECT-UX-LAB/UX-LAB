@@ -7,9 +7,12 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
+import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -84,37 +87,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        super.onCreateContextMenu(menu, v, menuInfo);
-        MenuInflater menuInflater = new MenuInflater(this);
-        menuInflater.inflate(R.menu.menu_item, menu);
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_item, menu);
+        MenuItem item0 = menu.findItem(R.id.item0);
+        if (item0 != null) {
+            item0.setVisible(false);
+        }
+        return true;
     }
+
+
 
     @Override
-    public boolean onContextItemSelected(@NonNull MenuItem item) {
-        Intent intent = getIntent();
-        username = intent.getStringExtra("USERNAME_KEY");
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
         switch (item.getItemId()) {
             case R.id.item1:
-                Toast.makeText(this, "Items", Toast.LENGTH_SHORT).show();
-                Intent items = new Intent(this, ItemActivity.class);
-                startActivity(items);
-                break;
+                intent = new Intent(this, ItemActivity.class);
+                intent.putExtra("USERNAME_KEY", username);
+                startActivity(intent);
+                return true;
             case R.id.item2:
-                Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
-                Intent profile = new Intent(this, ProfileActivity.class);
-                profile.putExtra("USERNAME_KEY", username);
-                startActivity(profile);
-                break;
+                intent = new Intent(this, ProfileActivity.class);
+                intent.putExtra("USERNAME_KEY", username);
+                startActivity(intent);
+                return true;
             case R.id.item3:
-                Toast.makeText(this, "Log Out", Toast.LENGTH_SHORT).show();
-                Intent log_out = new Intent(this, LoginActivity.class);
-                startActivity(log_out);
-
-                break;
+                intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onContextItemSelected(item);
     }
+
 
     public class ReversePageTransformer implements ViewPager.PageTransformer {
         @Override
@@ -162,7 +168,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        public void onClick(View v) {
 //            Intent intent = new Intent(MainActivity.this, ItemActivity.class);
 //            startActivity(intent);
-//        }
+//
 //    });
+
+
 
 }
