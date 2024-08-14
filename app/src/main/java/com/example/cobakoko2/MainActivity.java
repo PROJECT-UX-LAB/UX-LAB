@@ -94,9 +94,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (item.getItemId()) {
             case R.id.item1:
                 Toast.makeText(this, "Items", Toast.LENGTH_SHORT).show();
+//                Intent items = new Intent(this, .class);
+//                startActivity(items);
                 break;
             case R.id.item2:
                 Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
+                Intent profile = new Intent(this, ProfileActivity.class);
+                startActivity(profile);
                 break;
             case R.id.item3:
                 Toast.makeText(this, "Log Out", Toast.LENGTH_SHORT).show();
