@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.Intent;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,6 +22,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     private List<Item> itemList;
     private Context context;
+
 
     public ItemAdapter(List<Item> itemList, Context context) {
         this.itemList = itemList;
@@ -41,9 +43,18 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         holder.recDesc.setText(item.getDataDesc());     // Mengatur deskripsi dari resource ID (int)
         holder.recImage.setImageResource(item.getDataImage());  // Mengatur gambar dari resource ID (int)
 
+        Intent intent = new Intent(context, ItemDetail.class);
+
         holder.recButton.setOnClickListener(v ->
-                Toast.makeText(context, "Lihat detail dari " + context.getString(item.getDataTitle()), Toast.LENGTH_SHORT).show()
+                {
+                    intent.putExtra("itemTitle", item.getDataTitle());
+                    intent.putExtra("itemDesc", item.getDataDesc());
+                    intent.putExtra("itemImage", item.getDataImage());
+                    context.startActivity(intent);
+                }
         );
+
+
     }
 
     @Override
@@ -64,5 +75,11 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
             recDesc = itemView.findViewById(R.id.recDesc);
             recButton = itemView.findViewById(R.id.recButton);
         }
+
     }
+
+
+
+
+
 }

@@ -20,7 +20,7 @@
             android:exported="false" />
         <activity android:name=".ProfileActivity"
             android:exported="false"/>
-        <activity android:name=".item"
+        <activity android:name=".ItemActivity"
             android:exported="false"/>
         <activity
             android:name=".LoginActivity"

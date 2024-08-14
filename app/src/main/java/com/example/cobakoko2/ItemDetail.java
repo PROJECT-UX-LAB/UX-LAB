@@ -16,6 +16,7 @@ import android.widget.Toast;
 public class ItemDetail extends AppCompatActivity {
     private EditText emailEditText;
     private Button submitButton;
+    private Button backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +41,10 @@ public class ItemDetail extends AppCompatActivity {
         // Initialize views
         emailEditText = findViewById(R.id.email_edit_text);
         submitButton = findViewById(R.id.order_button);
+        
         // Set onClick listener for the submit button
         submitButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 validateEmail();

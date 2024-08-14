@@ -6,287 +6,294 @@
     android:layout_height="match_parent"
     tools:context=".ItemDetail">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:ignore="MissingConstraints">
+        android:layout_height="match_parent">
 
-        <FrameLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:paddingHorizontal="15dp"
-            android:paddingVertical="20dp"
-            android:background="#7F7F7F"
-            android:layout_marginBottom="30dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
             tools:ignore="MissingConstraints">
 
-            <LinearLayout
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="start">
-
-                <ImageButton
-                    android:id="@+id/back_button"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:paddingRight="13dp"
-                    android:paddingBottom="13dp"
-                    android:src="@drawable/icon_back"
-                    android:scaleType="centerInside"
-                    android:background="@android:color/transparent"
-                    android:contentDescription="@string/back_button_description"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:layout_weight="1"/>
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="11" />
+                android:layout_height="250dp"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="20dp"
+                android:background="#7F7F7F"
+                android:layout_marginBottom="30dp"
+                tools:ignore="MissingConstraints">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_weight="1"
-                    android:layout_gravity="end">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="start">
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Sekiro Shadow Die Twice"
-                            android:fontFamily="@font/poppins_bold"
-                            android:textColor="@color/white"
-                            android:textSize="20dp"
-                            android:layout_marginBottom="5dp"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/poppins_regular"
-                            android:text="Action | RPG | Story"
-                            android:textColor="@color/black"
-                            android:textSize="15dp"
-                            tools:ignore="TextSizeCheck" />
-
-                    </LinearLayout>
+                    <ImageButton
+                        android:id="@+id/back_button"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:paddingRight="13dp"
+                        android:paddingBottom="13dp"
+                        android:src="@drawable/icon_back"
+                        android:scaleType="centerInside"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="@string/back_button_description"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_weight="1"/>
 
                     <View
                         android:layout_width="0dp"
                         android:layout_height="0dp"
-                        android:layout_weight="10" />
+                        android:layout_weight="11" />
 
-                    <FrameLayout
-                        xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:layout_width="68dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="16dp"
-                        android:background="@drawable/rating_container">
+                        android:orientation="horizontal"
+                        android:layout_weight="1"
+                        android:layout_gravity="end">
 
                         <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="horizontal"
-                            android:gravity="center">
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
 
-                            <ImageView
-                                android:layout_width="15dp"
-                                android:layout_height="15dp"
-                                android:src="@drawable/icon_star"/>
-
-                            <View
-                                android:layout_width="0dp"
-                                android:layout_height="0dp"
-                                android:layout_weight="10" />
+                            <TextView
+                                android:layout_width="250dp"
+                                android:layout_height="wrap_content"
+                                android:text="Sekiro Shadow Die Twice"
+                                android:fontFamily="@font/poppins_bold"
+                                android:textColor="@color/white"
+                                android:textSize="20dp"
+                                android:layout_marginBottom="5dp"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="4.9"
-                                android:fontFamily="@font/poppins_bold"
-                                android:textColor="#FAA51F"
-                                android:textSize="16dp"/>
+                                android:fontFamily="@font/poppins_regular"
+                                android:text="Action | RPG | Story"
+                                android:textColor="@color/black"
+                                android:textSize="15dp"
+                                tools:ignore="TextSizeCheck" />
 
                         </LinearLayout>
 
-                    </FrameLayout>
+<!--                        <View-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_height="0dp"-->
+<!--                            android:layout_weight="5" />-->
 
+                        <FrameLayout
+                            xmlns:android="http://schemas.android.com/apk/res/android"
+                            android:layout_width="68dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/rating_container">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal"
+                                android:gravity="center">
+
+                                <ImageView
+                                    android:layout_width="15dp"
+                                    android:layout_height="15dp"
+                                    android:src="@drawable/icon_star"/>
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="10" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="4.9"
+                                    android:fontFamily="@font/poppins_bold"
+                                    android:textColor="#FAA51F"
+                                    android:textSize="16dp"/>
+
+                            </LinearLayout>
+
+                        </FrameLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+            <!--    Categories Game    -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_marginBottom="30dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="30dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/icon_downlaod"
+                        android:layout_marginRight="5dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="100M"
+                        android:textColor="@color/black"
+                        android:textSize="13dp"
+                        tools:ignore="TextSizeCheck" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="30dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/icon_people"
+                        android:layout_marginRight="5dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Rated"
+                        android:textColor="@color/black"
+                        android:textSize="13dp"
+                        tools:ignore="TextSizeCheck" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/icon_smartphone"
+                        android:layout_marginRight="5dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="15 GB"
+                        android:textColor="@color/black"
+                        android:textSize="13dp"
+                        tools:ignore="TextSizeCheck" />
                 </LinearLayout>
 
             </LinearLayout>
 
-        </FrameLayout>
-
-        <!--    Categories Game    -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:layout_marginBottom="30dp">
-
-            <LinearLayout
+            <!--    Description Game    -->
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:text="About Game"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="5dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/poppins_regular"
+                android:justificationMode="inter_word"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                tools:ignore="TextSizeCheck" />
+
+            <!--    Email    -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="5dp"/>
+
+            <EditText
+                android:id="@+id/email_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/rounded_edit_text"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="Input your email"
+                android:inputType="textEmailAddress"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="12dp"
+                android:textSize="14dp"
+                tools:ignore="TextSizeCheck" />
+
+            <!--    Payment Method    -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Payment Method"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="5dp"/>
+
+            <Spinner
+                android:id="@+id/spinner_payment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="13dp"
+                android:background="@drawable/rounded_edit_text"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginBottom="30dp"/>
+
+            <Button
+                android:id="@+id/order_button"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginRight="30dp">
+                android:background="@drawable/button_bg_order"
+                android:fontFamily="@font/poppins_bold"
+                android:padding="10dp"
+                android:text="Order Now"
+                android:textColor="@android:color/white"
+                android:textSize="13dp"
+                tools:ignore="TextSizeCheck" />
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/icon_downlaod"
-                    android:layout_marginRight="5dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="100M"
-                    android:textColor="@color/black"
-                    android:textSize="13dp"
-                    tools:ignore="TextSizeCheck" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center"
-                android:layout_marginRight="30dp">
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/icon_people"
-                    android:layout_marginRight="5dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="Rated"
-                    android:textColor="@color/black"
-                    android:textSize="13dp"
-                    tools:ignore="TextSizeCheck" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center">
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/icon_smartphone"
-                    android:layout_marginRight="5dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="15 GB"
-                    android:textColor="@color/black"
-                    android:textSize="13dp"
-                    tools:ignore="TextSizeCheck" />
-            </LinearLayout>
 
         </LinearLayout>
 
-        <!--    Description Game    -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="About Game"
-            android:fontFamily="@font/poppins_bold"
-            android:textColor="@color/black"
-            android:textSize="16dp"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginBottom="5dp"/>
+    </ScrollView>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginBottom="20dp"
-            android:fontFamily="@font/poppins_regular"
-            android:justificationMode="inter_word"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-            android:textColor="@color/black"
-            android:textSize="12dp"
-            tools:ignore="TextSizeCheck" />
-
-        <!--    Email    -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Email"
-            android:fontFamily="@font/poppins_bold"
-            android:textColor="@color/black"
-            android:textSize="16dp"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginBottom="5dp"/>
-
-        <EditText
-            android:id="@+id/email_edit_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/rounded_edit_text"
-            android:fontFamily="@font/poppins_regular"
-            android:hint="Input your email"
-            android:inputType="textEmailAddress"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="12dp"
-            android:textSize="14dp"
-            tools:ignore="TextSizeCheck" />
-
-        <!--    Payment Method    -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Payment Method"
-            android:fontFamily="@font/poppins_bold"
-            android:textColor="@color/black"
-            android:textSize="16dp"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginBottom="5dp"/>
-
-        <Spinner
-            android:id="@+id/spinner_payment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="13dp"
-            android:background="@drawable/rounded_edit_text"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginBottom="30dp"/>
-
-        <Button
-            android:id="@+id/order_button"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/button_bg_order"
-            android:fontFamily="@font/poppins_bold"
-            android:padding="10dp"
-            android:text="Order Now"
-            android:textColor="@android:color/white"
-            android:textSize="13dp"
-            tools:ignore="TextSizeCheck" />
-
-
-    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
