@@ -10,6 +10,7 @@ import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -154,4 +155,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onPointerCaptureChanged(boolean hasCapture) {
         super.onPointerCaptureChanged(hasCapture);
     }
+
+//    Button openItemActivityButton = findViewById(R.id.xxx); // Asumsi kamu punya tombol dengan ID ini
+//    openItemActivityButton.setOnClickListener(new View.OnClickListener() {
+//        @Override
+//        public void onClick(View v) {
+//            Intent intent = new Intent(MainActivity.this, ItemActivity.class);
+//            startActivity(intent);
+//        }
+//    });
+
 }

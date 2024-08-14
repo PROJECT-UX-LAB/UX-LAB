@@ -8,4 +8,17 @@
         <item>Master Card</item>
         <item>Credit Card</item>
     </string-array>
+
+    <string name="game_title_1">Animal Crossing</string>
+    <string name="game_title_2">Barbie</string>
+    <string name="game_title_3">Bomberman</string>
+    <string name="game_title_4">Super Mario Bros</string>
+    <string name="game_title_5">Minecraft</string>
+
+    <!-- Deskripsi untuk game -->
+    <string name="game_desc_1">Animal Crossing membawa kamu ke dunia simulasi kehidupan di mana kamu bisa membangun rumah, berinteraksi dengan karakter lucu, dan menjalani kehidupan desa yang damai.</string>
+    <string name="game_desc_2">Dalam dunia Barbie, kamu bisa menjelajahi berbagai petualangan dan cerita yang menampilkan fashion, desain, dan kehidupan impian dengan gaya Barbie yang ikonik.</string>
+    <string name="game_desc_3">Bomberman adalah game klasik di mana kamu harus meletakkan bom untuk menghancurkan musuh dan rintangan, sambil menghindari jebakan dan mencari jalan keluar.</string>
+    <string name="game_desc_4">Super Mario Bros mengajak kamu untuk membantu Mario menyelamatkan Princess Peach dari Bowser dalam petualangan platform yang penuh tantangan dan level ikonik.</string>
+    <string name="game_desc_5">Minecraft menawarkan dunia terbuka tanpa batas, di mana kamu bisa membangun apa pun yang kamu bayangkan, bertahan dari monster, dan menjelajahi dunia yang penuh misteri.</string>
 </resources>
