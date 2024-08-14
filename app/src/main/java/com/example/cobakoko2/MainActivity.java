@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
@@ -11,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.denzcoskun.imageslider.ImageSlider;
@@ -29,13 +31,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageButton menu_button;
     private ImageSlider imageSlider;
     private ViewPager sliderViewPager;
+    private TextView usernameTv;
 
     private int currentSlide = 0;
+
+    private String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Intent intent = getIntent();
+        username = intent.getStringExtra("USERNAME_KEY");
+
+        // Tambahkan kode untuk menampilkan username di UI, jika diperlukan
+        // Misalnya, menggunakan TextView:
+        usernameTv = findViewById(R.id.USERNAME);
+        if (username != null) {
+            usernameTv.setText(username);
+        }
 
         imageSlider = findViewById(R.id.imageSlider);
         btnPrev = findViewById(R.id.btnPrev);
@@ -53,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnPrev.setOnClickListener(this);
         btnNext.setOnClickListener(this);
 
-        // Inisialisasi ImageSlider dengan gambar-gambar
+
         ArrayList<SlideModel> slideModels = new ArrayList<>();
         slideModels.add(new SlideModel(R.drawable.image1, ScaleTypes.FIT));
         slideModels.add(new SlideModel(R.drawable.image2, ScaleTypes.FIT));
@@ -85,10 +100,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.item3:
                 Toast.makeText(this, "Log Out", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
+
                 break;
         }
         return super.onContextItemSelected(item);
     }
+
     public class ReversePageTransformer implements ViewPager.PageTransformer {
         @Override
         public void transformPage(@NonNull View page, float position) {
@@ -105,19 +124,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (v == btnNext) {
             currentSlide++;
             if (currentSlide >= totalSlides) {
-                currentSlide = 0; // Kembali ke slide pertama jika sudah mencapai slide terakhir
+                currentSlide = 0;
             }
             sliderViewPager.setCurrentItem(currentSlide, true); // Slide ke depan dengan animasi maju
         } else if (v == btnPrev) {
             if (currentSlide == 0) {
-                currentSlide = totalSlides - 1; // Jika sudah di slide pertama, lompat ke slide terakhir
+                currentSlide = totalSlides - 1;
             } else {
                 currentSlide--;
             }
 
-            // Simulasi slide mundur namun dengan animasi maju
-            sliderViewPager.setCurrentItem(currentSlide + 1, false); // Pindahkan ke slide berikutnya tanpa animasi
-            sliderViewPager.setCurrentItem(currentSlide, true); // Pindahkan kembali dengan animasi ke belakang (kanan ke kiri)
+
+            sliderViewPager.setCurrentItem(currentSlide + 1, false);
+            sliderViewPager.setCurrentItem(currentSlide, true);
         }
     }
 
